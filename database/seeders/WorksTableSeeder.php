@@ -20,7 +20,8 @@ class WorksTableSeeder extends Seeder
                 "year" => 1889,
                 "location" => "Museum of Modern Art, New York",
                 "description" => "La celebre opera di Van Gogh cattura un cielo notturno turbolento e vibrante di colori, con spirali e stelle
-                che sembrano danzare sopra un paesaggio tranquillo. L'intensità del suo tratto e dei colori esprime il suo tormento interiore."
+                che sembrano danzare sopra un paesaggio tranquillo. L'intensità del suo tratto e dei colori esprime il suo tormento interiore.",
+                "image" => "images/lanottestellata.jpg"
             ],
             [
                 "name" => "I Girasoli",
