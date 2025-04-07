@@ -1,11 +1,11 @@
-@extends ('layouts.app');
+@extends ('layouts.app')
 @section('title', 'Tutti i quadri')
 @section('content')
 
 <div class="container">
     <div class="section my-4">
         <h1 class="my-4">Opere</h1>
-    <a class="btn btn-primary" href="{{ route('works.create') }}">Aggiungi</a>
+    <a class="btn btn-warning" href="{{ route('works.create') }}">Aggiungi</a>
     </div>
     <div class="row">
         @foreach ($works as $work)

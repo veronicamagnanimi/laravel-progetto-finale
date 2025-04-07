@@ -3,11 +3,10 @@
 
 @section('content')
 
-    <div class="mt-3">
-        <a href="{{ route('works.show', $work) }}" class="btn btn-secondary btn-sm float-start">
-            Indietro
-        </a>
-    </div>
+    <!-- indietro -->
+    <a href="{{ route('works.index') }}" class="position-absolute top-0 start-0 m-4 back-icon">
+        <i class="bi bi-arrow-left-circle-fill fs-2"></i>
+    </a>
 
     <!-- form -->
     <div class="d-flex justify-content-center">
@@ -43,7 +42,7 @@
             </div>
 
             <div class="text-center">
-                <button type="submit" class="btn btn-primary mt-3">Modifica quadro</button>
+                <button type="submit" class="btn btn-warning mt-3">Modifica quadro</button>
             </div>
         </form>
     </div>

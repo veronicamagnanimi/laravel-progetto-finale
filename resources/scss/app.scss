@@ -1,1 +1,137 @@
-@import '~bootstrap/scss/bootstrap'
+@import '~bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
+
+// palette
+$giallo-ocra: #C99700;
+$grigio-chiaro: #D3D3D3;
+$bianco: #FFFFFF;
+
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Raleway:wght@400;600&display=swap');
+
+// common
+body {
+  background-color: $bianco;
+  font-family: 'Raleway', sans-serif;
+  color: #333;
+  transition: all 0.3s ease; //transizione per hover
+}
+
+.back-icon {
+  color: $giallo-ocra;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: darken($giallo-ocra, 10%);
+    transform: scale(1.1);
+  }
+}
+
+////////////////NAVBAR////////////////
+
+
+
+////////////////SHOW/////////////////
+.work-details {
+    background-color: lighten($grigio-chiaro, 10%); 
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    padding: 2rem;
+    max-width: 800px;
+    margin: auto;
+    transition: all 0.3s ease;
+
+  }
+  
+  .work-details h2 {
+    font-family: 'Playfair Display', serif;
+    color: $giallo-ocra;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+  
+    &:hover {
+      color: darken($giallo-ocra, 10%);
+    }
+  }
+  
+  .work-details h5 {
+    color: darken($giallo-ocra, 10%);
+    font-style: italic;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+  }
+  
+  .work-details p {
+    margin-bottom: 0.5rem;
+  }
+  
+  .work-details .lead {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-weight: 400;
+    margin-bottom: 2rem;
+  }
+  
+  .work-details .btn:not(.modal-btn) {
+    padding: 0.6rem 1.2rem;
+    border-radius: 12px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-block;
+    cursor: pointer; 
+  }
+  
+  .btn-warning {
+    background-color: $giallo-ocra;
+    border: none;
+    color: white;
+  
+    &:hover {
+      background-color: darken($giallo-ocra, 10%);
+      transform: scale(1.05);
+    }
+  }
+  
+  .btn-danger {
+    background-color: transparent;
+    border: 2px solid $giallo-ocra;
+    color: $giallo-ocra;
+  
+    &:hover {
+      background-color: lighten($giallo-ocra, 35%);
+      color: darken($giallo-ocra, 10%);
+      transform: scale(1.05);
+    }
+  }
+  
+// show modale
+.modal-btn {
+    cursor: pointer;
+    transition: all 0.2s ease; 
+}
+
+.btn-modal-secondary {
+    background-color: #5A5A5A; 
+    color: white;
+    border: none;
+
+    &:hover {
+        background-color: #444444; 
+    }
+}
+
+.btn-modal-danger {
+    background-color: #D9534F;
+    color: white;
+    border: none;
+
+    &:hover {
+        background-color: #C9302C; 
+    }
+}
+
+
+
+  
