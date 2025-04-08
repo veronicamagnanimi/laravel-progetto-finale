@@ -28,7 +28,29 @@ body {
 }
 
 ////////////////NAVBAR////////////////
+.navbar-custom {
+  background-color: $giallo-ocra; // Colore di sfondo
+  color: $bianco; // Colore del testo
+  padding: 0.75rem 0;
 
+  .nav-link {
+      color: $bianco; // Colore dei link
+      font-size: 1.3rem;
+
+      &:hover {
+          color: $grigio-chiaro; // Colore dei link al passaggio del mouse
+      }
+  }
+
+  .navbar-brand {
+      color: $bianco; // Colore del brand
+      font-weight: bold;
+
+      &:hover {
+          color: $grigio-chiaro; // Colore del brand al passaggio del mouse
+      }
+  }
+}
 
 
 ////////////////SHOW/////////////////

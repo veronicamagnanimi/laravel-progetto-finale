@@ -106,16 +106,20 @@ class WorksTableSeeder extends Seeder
         ];
 
         foreach ($works as $work) {
-            $newWork = new Work();
-
-            $newWork->name = $work['name'];
-            $newWork->painter = $work['painter'];
-            $newWork->year = $work['year'];
-            $newWork->location = $work['location'];
-            $newWork->description = $work['description'];
-            
-            $newWork->save();
-        };
+            $painter = \App\Models\Painter::where('name', $work['painter'])->first();
+        
+            if ($painter) {
+                $newWork = new Work();
+        
+                $newWork->name = $work['name'];
+                $newWork->painter_id = $painter->id;
+                $newWork->year = $work['year'];
+                $newWork->location = $work['location'];
+                $newWork->description = $work['description'];
+        
+                $newWork->save();
+            }
+        }
 
     }
 }

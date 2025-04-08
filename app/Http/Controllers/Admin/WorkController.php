@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Work;
+use App\Models\Painter;
 
 class WorkController extends Controller
 {
@@ -22,7 +23,8 @@ class WorkController extends Controller
      */
     public function create()
     {
-        return view('works.create');
+        $painters = Painter::all();
+        return view('works.create', compact('painters'));
     }
 
     /**
@@ -31,9 +33,22 @@ class WorkController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+
+        // controllo se è stato aggiunto un nuovo pittore
+        if ($request->painter_id === 'new') {
+            $painter = new Painter();
+            $painter->name = $request->new_painter;
+            $painter->description = $request->new_painter_description; 
+            $painter->save();
+
+            $painter_id = $painter->id; // ottengo l'id del nuovo pittore
+        } else {
+            $painter_id = $request->painter_id; // oppure uso l'id del pittore selezionato
+        }
+
         $newWork = new Work();
         $newWork->name = $data['name'];
-        $newWork->painter = $data['painter'];
+        $newWork->painter_id = $painter_id;
         $newWork->year = $data['year'];
         $newWork->location = $data['location'];
         $newWork->description = $data['description'];
@@ -56,7 +71,8 @@ class WorkController extends Controller
      */
     public function edit(Work $work)
     {
-        return view('works.edit', compact('work'));  //work è una stringa
+        $painters = Painter::all();
+        return view('works.edit', compact('work', 'painters'));  //work è una stringa
     }
 
     /**
@@ -66,7 +82,7 @@ class WorkController extends Controller
     {
         $data = $request->all();
         $work->name = $data['name'];
-        $work->painter = $data['painter'];
+        $work->painter_id = $data['painter_id'];
         $work->year = $data['year'];
         $work->location = $data['location'];
         $work->description = $data['description'];

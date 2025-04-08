@@ -11,7 +11,7 @@
     <!-- card -->
     <div class="card shadow-lg p-4 text-center w-75 work-details">
         <h2 class="fw-bold">{{ $work->name }}</h2>
-        <h5 class="fst-italic">Dipinto da {{ $work->painter }}</h5>
+        <h5 class="fst-italic">Dipinto da {{ $work->painter->name }}</h5>
 
         <p class="fs-4">{{ $work->year }}</p>
         <hr>

@@ -21,7 +21,14 @@
 
             <div class="form-group mt-3">
                 <label for="painter">Pittore</label>
-                <input type="text" name="painter" id="painter" class="form-control" value="{{ $work->painter }}" required>
+                <select name="painter_id" id="painter_id" class="form-control" required>
+                    <option value="" disabled>Seleziona un pittore</option>
+                    @foreach ($painters as $painter)
+                        <option value="{{ $painter->id }}" {{ $work->painter_id == $painter->id ? 'selected' : '' }}>
+                            {{ $painter->name }}
+                        </option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="form-group mt-3">
