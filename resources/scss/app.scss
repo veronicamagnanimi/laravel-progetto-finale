@@ -29,25 +29,25 @@ body {
 
 ////////////////NAVBAR////////////////
 .navbar-custom {
-  background-color: $giallo-ocra; // Colore di sfondo
-  color: $bianco; // Colore del testo
+  background-color: $giallo-ocra; 
+  color: $bianco; 
   padding: 0.75rem 0;
 
   .nav-link {
-      color: $bianco; // Colore dei link
+      color: $bianco; 
       font-size: 1.3rem;
 
       &:hover {
-          color: $grigio-chiaro; // Colore dei link al passaggio del mouse
+          color: $grigio-chiaro;
       }
   }
 
   .navbar-brand {
-      color: $bianco; // Colore del brand
+      color: $bianco; 
       font-weight: bold;
 
       &:hover {
-          color: $grigio-chiaro; // Colore del brand al passaggio del mouse
+          color: $grigio-chiaro; 
       }
   }
 }
@@ -152,6 +152,52 @@ body {
     &:hover {
         background-color: #C9302C; 
     }
+}
+
+//////////////CREATE E UPDATE/////////////
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.work-form {
+  @extend .work-details;
+  background-color: lighten($grigio-chiaro, 10%);
+  animation: fadeInUp 0.6s ease-out;
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    color: $giallo-ocra;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  label {
+    color: #000;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .form-control {
+    border-radius: 10px;
+    box-shadow: none;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      border-color: $giallo-ocra;
+      box-shadow: 0 0 0 0.2rem rgba(201, 151, 0, 0.25);
+    }
+  }
+
+  .btn-warning {
+    margin-top: 1rem;
+  }
 }
 
 

@@ -106,17 +106,18 @@ class WorksTableSeeder extends Seeder
         ];
 
         foreach ($works as $work) {
+            // cerca il pittore nella tabella 'painters' utilizzando il nome specificato nel record corrente
             $painter = \App\Models\Painter::where('name', $work['painter'])->first();
-        
+
             if ($painter) {
                 $newWork = new Work();
-        
+
                 $newWork->name = $work['name'];
-                $newWork->painter_id = $painter->id;
+                $newWork->painter_id = $painter->id; // id del pittore associato
                 $newWork->year = $work['year'];
                 $newWork->location = $work['location'];
                 $newWork->description = $work['description'];
-        
+
                 $newWork->save();
             }
         }
