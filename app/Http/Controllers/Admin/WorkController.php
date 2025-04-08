@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Work;
 use App\Models\Painter;
+use Illuminate\Support\Facades\Storage;
 
 class WorkController extends Controller
 {
@@ -38,7 +39,7 @@ class WorkController extends Controller
         if ($request->painter_id === 'new') {
             $painter = new Painter();
             $painter->name = $request->new_painter;
-            $painter->description = $request->new_painter_description; 
+            $painter->description = $request->new_painter_description;
             $painter->save();
 
             $painter_id = $painter->id; // ottengo l'id del nuovo pittore
@@ -52,6 +53,11 @@ class WorkController extends Controller
         $newWork->year = $data['year'];
         $newWork->location = $data['location'];
         $newWork->description = $data['description'];
+
+        if (array_key_exists('image', $data)) {
+            $img_url = Storage::putFile('works', $data['image']); //putFile crea nome img univoco
+            $newWork->image = $img_url;
+        }
 
         $newWork->save();
 
@@ -87,6 +93,18 @@ class WorkController extends Controller
         $work->location = $data['location'];
         $work->description = $data['description'];
 
+        // controllo se è stata caricata una nuova immagine
+        if ($request->hasFile('image')) {
+            // elimina l'immagine precedente solo se esiste
+            if ($work->image) {
+                Storage::delete($work->image);
+            }
+
+            // salva la nuova immagine
+            $img_url = $request->file('image')->store('works', 'public');
+            $work->image = $img_url;
+        }
+
         $work->update();
 
         return redirect()->route('works.show', $work);
@@ -97,6 +115,11 @@ class WorkController extends Controller
      */
     public function destroy(Work $work)
     {
+        if ($work->image) {
+            Storage::delete($work->image);
+        }
+        ;
+
         $work->delete();
         return redirect()->route('works.index');
     }

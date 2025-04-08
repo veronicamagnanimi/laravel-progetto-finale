@@ -48,6 +48,11 @@
         </div>
 
         <div class="form-group mt-3">
+            <label for="image">Immagine</label>
+            <input type="file" name="image" id="image" class="form-control" required>
+        </div>
+
+        <div class="form-group mt-3">
             <label for="description">Descrizione</label>
             <textarea name="description" id="description" class="form-control" rows="5" required></textarea>
         </div>
