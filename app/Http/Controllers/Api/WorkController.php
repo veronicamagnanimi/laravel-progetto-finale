@@ -15,4 +15,12 @@ class WorkController extends Controller
             'data' => $works
         ]);
     }
+
+    public function show(Work $work) {
+        $work->load('painter');  // load carica le relazioni di un modello dopo che è stato recuperato dal db e aggiunge all'istanza work
+        return response()->json([
+            'success' => true,
+            'data' => $work
+        ]);
+    }
 }
