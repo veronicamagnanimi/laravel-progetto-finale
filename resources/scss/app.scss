@@ -52,6 +52,13 @@ body {
   }
 }
 
+////////////////CARD INDEX///////////
+.card-image {
+  height: 200px; /* Altezza uniforme per tutte le immagini delle card */
+  object-fit: cover; /* Ritaglia l'immagine per adattarla all'area */
+  width: 100%; /* Assicura che l'immagine occupi tutta la larghezza */
+}
+
 
 ////////////////SHOW/////////////////
 .work-details {

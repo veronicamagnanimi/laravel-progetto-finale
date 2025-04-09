@@ -11,7 +11,19 @@
     <!-- card -->
     <div class="card shadow-lg p-4 text-center w-75 work-details">
         <h2 class="fw-bold">{{ $work->name }}</h2>
-        <h5 class="fst-italic">Dipinto da {{ $work->painter->name }}</h5>
+        <h5 class="fst-italic">
+    Dipinto da 
+    <a href="#" data-bs-toggle="modal" data-bs-target="#painterModal">
+        {{ $work->painter->name }}
+    </a>
+</h5>
+
+        <!-- immagine -->
+        @if ($work->image)
+            <div class="my-4">
+                <img src="{{ asset('storage/' . $work->image) }}" alt="{{ $work->name }}" class="img-fluid w-50">
+            </div>
+        @endif
 
         <p class="fs-4">{{ $work->year }}</p>
         <hr>
@@ -21,16 +33,16 @@
         <hr class="my-2">
 
         <div class="d-flex justify-content-center gap-3 mt-4 flex-wrap">
-    <!-- elimina -->
-    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Elimina
-    </button>
+            <!-- elimina -->
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Elimina
+            </button>
 
-    <!-- modifica -->
-    <a href="{{ route('works.edit', $work) }}" class="btn btn-warning">
-        Modifica
-    </a>
-</div>
+            <!-- modifica -->
+            <a href="{{ route('works.edit', $work) }}" class="btn btn-warning">
+                Modifica
+            </a>
+        </div>
 
         <!-- modale delete -->
         <div class="modal" id="exampleModal" tabindex="-1">
@@ -52,6 +64,24 @@
                             @csrf
                             @method('DELETE')
                         </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- modale per la descrizione del pittore -->
+        <div class="modal fade" id="painterModal" tabindex="-1" aria-labelledby="painterModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="painterModalLabel">{{ $work->painter->name }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Chiudi"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{ $work->painter->description }}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Chiudi</button>
                     </div>
                 </div>
             </div>
