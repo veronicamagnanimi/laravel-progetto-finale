@@ -54,7 +54,7 @@ class WorkController extends Controller
         $newWork->location = $data['location'];
         $newWork->description = $data['description'];
 
-        if (array_key_exists('image', $data)) {
+        if (array_key_exists('image', $data)) { // verifica se la chiave image esiste nell'array data
             $img_url = Storage::putFile('works', $data['image']); //putFile crea nome img univoco
             $newWork->image = $img_url;
         }

@@ -28,7 +28,8 @@ body {
 }
 
 ////////////////NAVBAR////////////////
-.navbar-custom {
+.navbar-custom,
+.footer {
   background-color: $giallo-ocra; 
   color: $bianco; 
   padding: 0.75rem 0;
@@ -62,6 +63,39 @@ body {
 .card-title {
   font-size: 1,5rem;
   font-weight: bold;
+}
+
+//hero
+.hero-banner {
+  max-height: 400px;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(70%);
+}
+
+.hero-text {
+  z-index: 2;
+  padding: 1rem;
+  font-family: 'Playfair Display', 'serif';
+}
+
+//icon
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: black; 
+  background-color: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 9999; 
+  transition: all 0.3s ease;
+}
+
+.scroll-to-top:hover {
+  color: #979795; 
+  transform: scale(1.1);
 }
 
 
