@@ -13,11 +13,22 @@ class WorkController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $works = Work::all();
-        return view('works.index', compact('works'));
-    }
+    public function index(Request $request)
+{
+    $search = $request->input('search'); // Recupera il parametro di ricerca
+
+    $works = Work::with('painter') // Recupera tutte le opere con i pittori associati
+        ->when($search, function ($query, $search) {
+            $search = strtolower($search);
+            $query->whereRaw('LOWER(name) LIKE ?', ["%{$search}%"]) // Cerca nei nomi dei quadri
+                ->orWhereHas('painter', function ($q) use ($search) { // Cerca nei nomi dei pittori
+                    $q->whereRaw('LOWER(name) LIKE ?', ["%{$search}%"]);
+                });
+        })
+        ->get();
+
+    return view('works.index', compact('works', 'search'));
+}
 
     /**
      * Show the form for creating a new resource.
