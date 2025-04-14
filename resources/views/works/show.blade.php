@@ -12,11 +12,11 @@
     <div class="card shadow-lg p-4 text-center w-75 work-details">
         <h2 class="fw-bold">{{ $work->name }}</h2>
         <h5 class="fst-italic">
-    Dipinto da 
-    <a href="#" data-bs-toggle="modal" data-bs-target="#painterModal">
-        {{ $work->painter->name }}
-    </a>
-</h5>
+            Dipinto da
+            <a href="#" data-bs-toggle="modal" data-bs-target="#painterModal">
+                {{ $work->painter->name }}
+            </a>
+        </h5>
 
         <!-- immagine -->
         @if ($work->image)
@@ -33,7 +33,7 @@
         <hr class="my-2">
 
         <div class="d-flex justify-content-center gap-3 mt-4 flex-wrap">
-            
+
             <!-- elimina -->
             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Elimina
@@ -43,36 +43,33 @@
             <a href="{{ route('works.edit', $work) }}" class="btn btn-warning">
                 Modifica
             </a>
+
             <!-- visiona in 3D -->
-<button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#modal3D">
-    Visiona in 3D
-</button>
+            <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#modal3D">
+                Visiona in 3D
+            </button>
 
         </div>
 
         <!-- modale 3d -->
-<div class="modal fade" id="modal3D" tabindex="-1" aria-labelledby="modal3DLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content p-3">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modal3DLabel">Visione 3D: {{ $work->name }}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Chiudi"></button>
-      </div>
-      <div class="modal-body text-center">
-        @if ($work->image)
-          <div class="image-3d-container">
-            <img
-              src="{{ asset('storage/' . $work->image) }}"
-              alt="{{ $work->name }}"
-              class="img-fluid image-3d"
-              style="max-height: 500px;"
-            >
-          </div>
-        @endif
-      </div>
-    </div>
-  </div>
-</div>
+        <div class="modal fade" id="modal3D" tabindex="-1" aria-labelledby="modal3DLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content p-3">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal3DLabel">Visione 3D: {{ $work->name }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Chiudi"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        @if ($work->image)
+                            <div class="image-3d-container">
+                                <img src="{{ asset('storage/' . $work->image) }}" alt="{{ $work->name }}"
+                                    class="img-fluid image-3d" style="max-height: 500px;">
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
         <!-- modale delete -->
@@ -116,21 +113,4 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- stile 3d -->
-        <style>
-.image-3d-container {
-    perspective: 1000px;
-    display: inline-block;
-}
-.image-3d {
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-}
-.image-3d-container:hover .image-3d {
-    transform: rotateY(15deg) rotateX(5deg) scale(1.05);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    cursor: grab;
-}
-</style>
+        </div> 

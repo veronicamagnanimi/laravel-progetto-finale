@@ -61,7 +61,7 @@
     {{-- Bottone per tornare a tutte le opere anche se ci sono risultati --}}
     @if (request('search') && !$works->isEmpty())
         <div class="text-center mt-4">
-            <a href="{{ route('works.index') }}" class="btn btn-warning">Mostra tutte le opere</a>
+            <a href="{{ route('works.index') }}" class="btn btn-warning mb-3">Mostra tutte le opere</a>
         </div>
     @endif
 </div>

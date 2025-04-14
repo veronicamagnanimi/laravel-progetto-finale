@@ -7,7 +7,7 @@
             <!-- Testo -->
             <div class="col-md-6 mb-4 mb-md-0">
                 <h1 class="display-4 fw-bold mb-3" style="color: #C99700;">
-                    Benvenuto nel portfolio artistico <i class="bi bi-brush"></i>
+                    Capolavori senza tempo<i class="bi bi-brush"></i>
                 </h1>
 
                 <p class="lead">
