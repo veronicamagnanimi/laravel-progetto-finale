@@ -29,42 +29,34 @@
 
         <!-- Card sempre visibili -->
         <div class="row justify-content-center text-center g-4">
+    <div class="col-md-4">
+        <div class="p-4 bg-white rounded shadow-sm h-100 card-animated">
+            <h5 class="mb-3" style="color: #C99700;"><i class="bi bi-collection me-2"></i>Area Amministrazione</h5>
+            <p>Gestisci e modifica i progetti in modo semplice e intuitivo.</p>
+            <a class="btn btn-warning" href="{{ route('works.index') }}">Accedi</a>
+        </div>
+    </div>
+
+    @auth
+        @if (Auth::user()->is_admin)
             <div class="col-md-4">
                 <div class="p-4 bg-white rounded shadow-sm h-100 card-animated">
-                    <h5 class="mb-3" style="color: #C99700;"><i class="bi bi-collection me-2"></i>Area Amministrazione</h5>
-                    <p>Gestisci e modifica i tuoi progetti in modo semplice e intuitivo.</p>
-                    <a class="btn btn-warning" href="{{ route('works.index') }}">Accedi</a>
+                    <h5 class="mb-3" style="color: #C99700;"><i class="bi bi-person-lock me-2"></i>Pannello Admin</h5>
+                    <p>Accedi agli strumenti di gestione avanzata del portfolio.</p>
+                    <a class="btn btn-outline-warning" href="{{ route('works.index') }}">Vai al pannello</a>
                 </div>
             </div>
+        @endif
+    @endauth
 
-            @auth
-                @if (Auth::user()->is_admin)
-                    <div class="col-md-4">
-                        <div class="p-4 bg-white rounded shadow-sm h-100 card-animated">
-                            <h5 class="mb-3" style="color: #C99700;"><i class="bi bi-person-lock me-2"></i>Pannello Admin</h5>
-                            <p>Accedi agli strumenti di gestione avanzata del portfolio.</p>
-                            <a class="btn btn-outline-warning" href="{{ route('works.index') }}">Vai al pannello</a>
-                        </div>
-                    </div>
-                @else
-                    <div class="col-md-4">
-                        <div class="p-4 bg-white rounded shadow-sm h-100 card-animated">
-                            <h5 class="mb-3" style="color: #C99700;"><i class="bi bi-easel me-2"></i>Area Utenti</h5>
-                            <p>Esplora la galleria interattiva in un'esperienza moderna e coinvolgente.</p>
-                            <a href="http://localhost:5174" target="_blank" class="btn btn-warning">Vai alla pagina</a>
-                        </div>
-                    </div>
-                @endif
-            @else
-                <div class="col-md-4">
-                    <div class="p-4 bg-white rounded shadow-sm h-100 card-animated">
-                        <h5 class="mb-3" style="color: #C99700;"><i class="bi bi-easel me-2"></i>Area Utenti</h5>
-                        <p>Esplora la galleria interattiva in un'esperienza moderna e coinvolgente.</p>
-                        <a href="http://localhost:5174" target="_blank" class="btn btn-warning">Vai alla pagina</a>
-                    </div>
-                </div>
-            @endauth
+    <div class="col-md-4">
+        <div class="p-4 bg-white rounded shadow-sm h-100 card-animated">
+            <h5 class="mb-3" style="color: #C99700;"><i class="bi bi-easel me-2"></i>Area Utenti</h5>
+            <p>Esplora la galleria interattiva in un'esperienza moderna e coinvolgente.</p>
+            <a href="http://localhost:5174" target="_blank" class="btn btn-warning">Vai alla pagina</a>
         </div>
+    </div>
+</div>
     </div>
 </div>
 
