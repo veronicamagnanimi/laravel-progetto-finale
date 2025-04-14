@@ -52,11 +52,11 @@
             <ul class="navbar-nav ms-auto">
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Accedi') }}</a>
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Registrati') }}</a>
                         </li>
                     @endif
                 @else
@@ -93,7 +93,7 @@
     </div>
 
     <!-- footer -->
-    <footer class="footer text-center text-white mt-5">
+    <footer class="footer text-center text-white">
         <div class="container">
             <p class="mb-1" style="font-size: 1rem;">
                 © {{ date('Y') }} L'Arte che Resta – Tutti i diritti riservati

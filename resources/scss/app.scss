@@ -246,6 +246,37 @@ body {
   }
 }
 
+/////////////WELCOME PAGE////////////
+// Sfondo invertito obliquo (dal grigio al giallo)
+.jumbotron {
+  background: linear-gradient(135deg, #D3D3D3 0%, #FFFFFF 50%, #C99700 100%) !important;
+  margin-bottom: 0;
+  padding-bottom: 3rem;
+}
+
+// Animazione card
+@keyframes fadeInZoom {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.card-animated {
+  animation: fadeInZoom 0.6s ease-in-out;
+  transition: transform 0.3s ease;
+}
+
+.card-animated:hover {
+  transform: scale(1.02);
+}
+
+
+
 
 
   
